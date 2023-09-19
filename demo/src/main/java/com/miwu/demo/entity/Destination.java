@@ -27,22 +27,63 @@ public class Destination {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // MySQL의 AUTO_INCREMENT를 사용
     private Long id;
 
-    // 여행지명 (not null, varchar(45))
+    // // 여행지명 (not null, varchar(45))
+    // @Column(name = "NAME", nullable = false, length = 45)
+    // private String name;
+
+    // // 이미지 url (not null, varchar(2000))
+    // @Column(name = "IMAGE_URL", nullable = false, length = 2000)
+    // private String image_url;
+
+    // // 설명 (not null, varchar(500))
+    // @Column(name = "Description", nullable = false, length = 500)
+    // private String description;
+
+    //순위
+    @Column(name = "ORDER", nullable = false, length = 100)
+    private int order;
+
+    //광역시/도
+    @Column(name = "ADRESS1", nullable = false, length = 45)
+    private String adress1;
+
+    //시/군/구
+    @Column(name = "ADRESS2", nullable = false, length = 45)
+    private String adress2;
+
+    // 관광지명 (not null, varchar(45))
     @Column(name = "NAME", nullable = false, length = 45)
     private String name;
 
-    // 이미지 url (not null, varchar(2000))
-    @Column(name = "IMAGE_URL", nullable = false, length = 2000)
-    private String image_url;
+    //도로명주소
+    @Column(name = "ROADADRESS", nullable = false, length = 200)
+    private String road_adress;
 
-    // 설명 (not null, varchar(500))
-    @Column(name = "Description", nullable = false, length = 500)
-    private String description;
+    //중분류 카테고리
+    @Column(name = "M_CATEGORY", nullable = false, length = 200)
+    private String m_category;
+
+    //소분류 카테고리
+    @Column(name = "S_CATEGORY", nullable = false, length = 200)
+    private String s_category;
+
+    //검색건수
+    @Column(name = "SEARCH_NUMBER", nullable = false, length = 200)
+    private int seach_number;
 
     // 생성자
-    public Destination(String name, String image_url, String description) {
-        this.name = name;
-        this.image_url = image_url;
-        this.description = description;
+    public Destination(int order, String adress1, String adress2, 
+    String name, String road_adress, String m_category, String s_category, int seach_number)
+    {
+
+        this.order=order;
+        this.adress1=adress1;
+        this.adress2=adress2;
+        this.name=name;
+        this.road_adress=road_adress;
+        this.m_category=m_category;
+        this.s_category=s_category;
+        this.seach_number=seach_number;
+
     }
 }
